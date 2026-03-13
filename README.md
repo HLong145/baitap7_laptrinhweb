@@ -137,7 +137,7 @@ function calculate_inventory_value(array $products): float
         'active' => true,
     ],
 ```
-mail là student nhưng tier lại alf falcutiy
+mail là student nhưng tier lại là falcutiy
 sửa:
 ```php
     [
