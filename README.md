@@ -17,29 +17,35 @@ $subtotal += $products[$item['sku']]['price'] * $item['qty']; (dòng 11 file che
 2.	VAT đang tính trên subtotal gốc (logic)
 
 Ở file gốc:
+```php
 $discountPercent = 0.1;
 $discountValue = $subtotal * $discountPercent;
 $shippingFee = $subtotal >= 50 ? 0 : 5;
 $vat = $subtotal * 0.1;
 $grandTotal = $subtotal - $discountValue + $shippingFee + $vat;
-
+```
 Tính số tiền lúc giảm giá nhưng lấy Vat gốc
 Sửa:
+```php
 $discountValue = $subtotal * $discountPercent;
 $afterDiscount = $subtotal - $discountValue;
 $shippingFee = $afterDiscount >= 50 ? 0 : 5;
 $vat = $afterDiscount * 0.1;
 $grandTotal = $afterDiscount + $shippingFee + $vat; (checkout.php)
+```
 3. lỗi chỗ low stock 
 File :
+```php
 foreach ($products as $sku => $product) {
     if ($product['stock'] < 1) {
         $lowStockItems[] = $sku . ' - ' . $product['name'];
     }
 }
+```
 Giải thích: low stock nhưng đến 0  mới cảnh báo 
  
 Sửa:
+```php
 $lowStockThreshold = 3;
 
 foreach ($products as $sku => $product) {
@@ -47,3 +53,4 @@ foreach ($products as $sku => $product) {
 	$lowStockItems[] = $sku . ' - ' . $product['name'];
 	}
 }
+```
