@@ -12,11 +12,14 @@ foreach ($orders as $order) {
 
 $lowStockItems = [];
 
+$lowStockThreshold = 3;
+
 foreach ($products as $sku => $product) {
-    if ($product['stock'] < 1) {
-        $lowStockItems[] = $sku . ' - ' . $product['name'];
-    }
+	if ($product['stock'] <= $lowStockThreshold) {
+	$lowStockItems[] = $sku . ' - ' . $product['name'];
+	}
 }
+
 ?>
 
 <section class="grid two-up">
