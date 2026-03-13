@@ -71,3 +71,59 @@ if ($order['status'] === 'completed') {
         $totalRevenue += calculate_order_total($order, $products);
     }
 ```
+
+5. Lỗi trong file reports
+file:
+```php
+foreach ($products as $product) {
+    $category = $product['name'];
+
+    if (!isset($totalsByCategory[$category])) {
+        $totalsByCategory[$category] = 0;
+    }
+
+    $totalsByCategory[$category] += $product['stock'] * $product['price'];
+}
+```
+đoạn code đang duyệt theo category nhưng lại để index theo name
+sửa:
+```php
+foreach ($products as $product) {
+    $category = $product['category'];
+
+    if (!isset($totalsByCategory[$category])) {
+        $totalsByCategory[$category] = 0;
+    }
+
+    $totalsByCategory[$category] += $product['stock'] * $product['price'];
+}
+```
+6. Lỗi trong file data.php
+file:
+```php
+
+function calculate_inventory_value(array $products): float
+{
+    $value = 0;
+
+    foreach ($products as $product) {
+        $value += $product['price'] + $product['stock'];
+    }
+
+    return $value;
+}
+```
+tính value cần là giá * số lượng
+sửa:
+```php
+function calculate_inventory_value(array $products): float
+{
+    $value = 0;
+
+    foreach ($products as $product) {
+        $value += $product['price'] * $product['stock'];
+    }
+
+    return $value;
+}
+```
