@@ -10,7 +10,7 @@ $subtotal = 0;
 foreach ($cart as $item) {
     $subtotal += $products[$item['sku']]['price'] * $item['qty'];
 }
-
+$discountPercent = 0.1;
 $discountValue = $subtotal * $discountPercent;
 $afterDiscount = $subtotal - $discountValue;
 $shippingFee = $afterDiscount >= 50 ? 0 : 5;

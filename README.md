@@ -28,6 +28,7 @@ $grandTotal = $subtotal - $discountValue + $shippingFee + $vat;
 Tính số tiền lúc giảm giá nhưng lấy Vat gốc
 Sửa:
 ```php
+$discountPercent = 0.1;
 $discountValue = $subtotal * $discountPercent;
 $afterDiscount = $subtotal - $discountValue;
 $shippingFee = $afterDiscount >= 50 ? 0 : 5;
