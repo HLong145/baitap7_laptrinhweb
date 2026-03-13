@@ -4,7 +4,7 @@ return [
     [
         'name' => 'Linh Pham',
         'email' => 'linh@student.example.com',
-        'tier' => 'faculty',
+        'tier' => 'student',
         'active' => true,
     ],
     [
