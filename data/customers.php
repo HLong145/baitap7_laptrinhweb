@@ -11,7 +11,7 @@ return [
         'name' => 'Minh Vo',
         'email' => 'minh@student.example.com',
         'tier' => 'student',
-        'active' => false,
+        'active' => true,
     ],
     [
         'name' => 'An Do',

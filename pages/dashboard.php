@@ -4,7 +4,7 @@ $totalRevenue = 0;
 $completedOrders = 0;
 
 foreach ($orders as $order) {
-    if ($order['status'] === 'pending') {
+    if ($order['status'] === 'completed') {
         $completedOrders++;
         $totalRevenue += calculate_order_total($order, $products);
     }
