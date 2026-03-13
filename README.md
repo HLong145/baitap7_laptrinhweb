@@ -6,14 +6,15 @@
 1. Sai ở phần tính subtotal (syntax)
 
 Ở file gốc:
+```php
 $subtotal = $products[$item['sku']]['price'] * $item['qty'];
-
+```
 Lỗi này sai bởi vì subtotal sẽ reset sau khi thêm cộng product mới chứ không cộng dồn
 
 Cách sửa: thay dấu “=” bằng ”+=”
-
+```php
 $subtotal += $products[$item['sku']]['price'] * $item['qty']; (dòng 11 file checkout php)
-
+```
 2.	VAT đang tính trên subtotal gốc (logic)
 
 Ở file gốc:
