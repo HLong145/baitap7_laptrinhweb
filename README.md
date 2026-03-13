@@ -1,4 +1,10 @@
+# Thành viên nhóm 4
+- 24521005 - Nguyễn Hoàng Long
+- 24520943 - Lâm Tú Lan
+- 24521113 - Nguyễn Lê Thành Nam
+- 24521175 - Dương Phạm Trần Nguyễn
 
+# Lỗi syntax
 - settings.php: ở dòng 7 đổi ; thành ]
 - report.php: thêm dấu ; sau khi khai báo reportrows
 - customers.php: thêm dấu ] sau 'active'
