@@ -127,3 +127,60 @@ function calculate_inventory_value(array $products): float
     return $value;
 }
 ```
+
+7. ở tại file data/customers.php
+```php
+    [
+        'name' => 'Linh Pham',
+        'email' => 'linh@student.example.com',
+        'tier' => 'faculty',
+        'active' => true,
+    ],
+```
+mail là student nhưng tier lại alf falcutiy
+sửa:
+```php
+    [
+        'name' => 'Linh Pham',
+        'email' => 'linh@student.example.com',
+        'tier' => 'faculty',
+        'tier' => 'student',
+        'active' => true,
+    ],
+```
+
+8. ở tại file data/customers.php
+```php
+    [
+        'name' => 'Minh Vo',
+        'email' => 'minh@student.example.com',
+        'tier' => 'student',
+        'active' => false,
+    ],
+```
+trạng thái của customer cần là true
+sửa:
+```php
+    [
+        'name' => 'Minh Vo',
+        'email' => 'minh@student.example.com',
+        'tier' => 'student',
+        'active' => true,
+    ],
+```
+9. lỗi ở file orders.php
+```php
+foreach ($orders as $order) {
+    if ($order['status'] === 'completed') {
+        $pendingOnly[] = $order;
+    }
+}
+```
+đoạn code này duyệt các order đang pending nhưng lại duyệt status là completed
+```php
+foreach ($orders as $order) {
+    if ($order['status'] === 'pending') {
+        $pendingOnly[] = $order;
+    }
+}
+```

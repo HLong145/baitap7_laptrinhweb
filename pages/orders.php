@@ -3,7 +3,7 @@
 $pendingOnly = [];
 
 foreach ($orders as $order) {
-    if ($order['status'] === 'completed') {
+    if ($order['status'] === 'pending') {
         $pendingOnly[] = $order;
     }
 }
