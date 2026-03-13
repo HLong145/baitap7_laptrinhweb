@@ -20,7 +20,7 @@ function calculate_inventory_value(array $products): float
     $value = 0;
 
     foreach ($products as $product) {
-        $value += $product['price'] + $product['stock'];
+        $value += $product['price'] * $product['stock'];
     }
 
     return $value;
