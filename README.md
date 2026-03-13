@@ -55,3 +55,19 @@ foreach ($products as $sku => $product) {
 	}
 }
 ```
+4. Lỗi chỗ status
+file:
+```php
+    if ($order['status'] === 'pending') {
+      $completedOrders++;
+      $totalRevenue += calculate_order_total($order, $products);
+   }
+```
+khi order vẫn pending mà completedorders vẫn tăng, cần chỉnh lại thành khi order completed
+sửa:
+```php
+if ($order['status'] === 'completed') {
+        $completedOrders++;
+        $totalRevenue += calculate_order_total($order, $products);
+    }
+```
